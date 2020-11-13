@@ -1,0 +1,29 @@
+---
+  - name: My first playbook
+    hosts: webservers
+    become: true
+    tasks:
+    
+    - name: Install pip3
+      apt:
+        update_cache: yes
+        name: python3-pip
+        state: present
+
+    - name: Install Docker.io
+      apt:
+        name: docker.io
+        state: present
+
+    - name: Install docker
+      pip:
+        name: docker
+        state: present
+
+    - name: Install dvwa
+      docker_container:
+        name: dvwa
+        image: cyberxsecurity/dvwa
+        state: started
+        restart_policy: always
+        published_ports: 8080:80
