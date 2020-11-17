@@ -1,0 +1,1 @@
+In this section I have added scripts that I commonly use on my cloud server VPN network where I have Snort 2.9.1 configured to run inline through the netfilter queue. The clamscan script and the upgrade script I generally add a cron entry so they run at least once a day and if the resources are available every 3-6 hours.

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+clamscan -i -o -r -l /var/log/clamav/clamscan.log

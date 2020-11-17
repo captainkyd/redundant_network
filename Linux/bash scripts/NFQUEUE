@@ -1,0 +1,4 @@
+#!/bin/bash
+
+iptables -R FORWARD 1 -j NFQUEUE --queue-num=1 --queue-bypass
+iptables -L -n -v | grep NFQUEUE

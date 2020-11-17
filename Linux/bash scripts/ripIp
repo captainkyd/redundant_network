@@ -1,0 +1,11 @@
+#!/bin/bash
+
+FILE=$1
+
+if [ "${FILE}" -eq 0 ]; then
+	echo "usage ripIp {filename}"
+fi
+
+
+grep -Eo '([0-9]{1,3}\.){3}[0-9]{1,3}' $FILE | sort | uniq
+
