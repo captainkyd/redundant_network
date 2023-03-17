@@ -1,3 +1,8 @@
 #! /bin/bash
 
-apt clean -y; apt autoremove -y; apt update; apt upgrade -y; apt dist-upgrade -y
+tput bold; tput setaf 5; echo "Cleaning old unnecessary apt files."; tput sgr0
+apt clean -y
+apt autoremove -y; 
+tput bold; tput setaf 5; echo "All cleaned up, now updating and upgrading the system."; tput sgr0
+apt update; apt upgrade -y; apt dist-upgrade -y
+tput bold; tput setaf 5; echo "All tasks have finished, enjoy."; tput sgr0
