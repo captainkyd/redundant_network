@@ -1,8 +1,11 @@
 #! /bin/bash
+magenta=$(tput setaf 5)
+bold=$(tput bold)
+reset=$(tput sgr0)
 
-tput bold; tput setaf 5; echo "Cleaning old unnecessary apt files."; tput sgr0
+bold; magenta; 5; echo "Cleaning old unnecessary apt files."; reset
 apt clean -y
 apt autoremove -y; 
-tput bold; tput setaf 5; echo "All cleaned up, now updating and upgrading the system."; tput sgr0
+bold; magenta; echo "All cleaned up, now updating and upgrading the system."; reset
 apt update; apt upgrade -y; apt dist-upgrade -y
-tput bold; tput setaf 5; echo "All tasks have finished, enjoy."; tput sgr0
+bold; magenta; echo "All tasks have finished, enjoy."; reset
