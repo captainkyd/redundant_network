@@ -1,0 +1,14 @@
+#!/bin/bash
+magenta=$(tput setaf 5)
+bold=$(tput bold)
+reset=$(tput sgr0)
+
+echo "${bold} ${magenta} What is the filename we will pull the ip's from? ${reset}"
+read filename
+cat $filename | ripIp | sed -e 's/172.69.69.2//g' | sed -e 's/172.69.69.3//g' | sed -e 's/76.145.44.99//g' | sed '/^$/d' | sort -u > ipz
+echo "${bold} ${magenta} we have pulled $(wc -l ipz) for the bloxList."
+echo "adding $(wc -l ipz) to the firewall block list ${reset}"; 
+for line in $(cat ipz); do psad --fw-block-ip $line; done
+echo "${bold} ${magenta} SUCCESS!!! Added $(wc -l ipz) to the block list. Removing tmp files and exiting ${reset}"
+rm ipz
+exit 0
