@@ -3,9 +3,11 @@ magenta=$(tput setaf 5)
 bold=$(tput bold)
 reset=$(tput sgr0)
 
-bold; magenta; 5; echo "Cleaning old unnecessary apt files."; reset
+echo "${bold} ${magenta}starting to clean apt of unnecessary files ${reset}"
 apt clean -y
 apt autoremove -y; 
-bold; magenta; echo "All cleaned up, now updating and upgrading the system."; reset
-apt update; apt upgrade -y; apt dist-upgrade -y
-bold; magenta; echo "All tasks have finished, enjoy."; reset
+echo "${bold} ${magenta} all done cleaning up apt, now updating and upgrading ${reset}"
+apt update
+apt full-upgrade -y
+apt dist-upgrade -y
+echo "${bold} ${magenta} All finished upgrading the system, enjoy. ${reset}"
